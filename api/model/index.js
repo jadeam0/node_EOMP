@@ -5,7 +5,7 @@ const { createToken } = require('../middleware/authenticateUser');
 class Users {
     fetchUsers(req, res) {
         const query = `
-        SELECT userID, firstName, lastName, userAge, gender, userDOB, emailAdd, userPW, userProfile,
+        SELECT userID, firstName, lastName, userAge, gender, userDOB, emailAdd, userPW, userProfile
         FROM users;
         `
         db.query(query, (err, results) => {
@@ -21,7 +21,7 @@ class Users {
 
     fetchUser(req, res) {
         const query = `
-        SELECT userID, firstName, lastName, userAge, gender, userDOB, emailAdd, userPW, userProfile,
+        SELECT userID, firstName, lastName, userAge, gender, userDOB, emailAdd, userPW, userProfile
         FROM users
         WHERE userID = ${ req.params.id };
         `
@@ -110,4 +110,85 @@ class Users {
     };
 };
 
-module.exports = Users;
+class Products {
+    fetchProducts(req, res) {
+        const query = `
+        SELECT prodID, prodName, quantity, prodPrice, category, prodDesc, prodUrl
+        FROM products;
+        `
+        db.query(query, (err, results) => {
+            if (err) {
+                console.log(err);
+            }
+            res.json({
+                status: res.statusCode,
+                results
+            });
+        });
+    };
+
+    fetchProduct(req, res) {
+        const query = `
+        SELECT prodID, prodName, quantity, prodPrice, category, prodDesc, prodUrl
+        FROM products
+        WHERE prodID = ${ req.params.id };
+        `
+        db.query(query, (err, result) => {
+            if (err) {
+                console.log(err);
+            }
+            res.json({
+                status: res.statusCode,
+                result
+            });
+        });
+    };
+
+    addProduct(req, res) {
+        const query = `
+        INSERT INTO products
+        SET ?;
+        `
+        db.query(query, [req.body], (err) => {
+            if (err) {
+                res.status(400).json({err: 'Could not add product'});
+            } else {
+                res.status(200).json({msg: 'Product added'});
+            }
+        });
+    }
+
+    updateProduct(req, res) {
+        const query =`
+        UPDATE products
+        SET ?
+        WHERE prodID = ?;
+        `
+        db.query(query, [req.body, req.params.id], (err) => {
+            if (err) {
+                res.status(400).json({err: 'Could not update records'});
+            } else {
+                res.status(200).json({msg: 'Product updated'});
+            }
+        });
+    }
+
+    deleteProduct(req,res) {
+        const query =`
+        DELETE FROM products
+        WHERE prodID = ${req.params.id};
+        `
+        db.query(query, [req.params.id], (err) => {
+            if (err) {
+                res.status(400).json({err: 'Record was not found'});
+            } else {
+                res.status(200).json({msg: 'product was deleted'});
+            }
+        });
+    }
+}
+
+module.exports = {
+    Users,
+    Products
+}

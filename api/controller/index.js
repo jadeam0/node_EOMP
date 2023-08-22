@@ -1,55 +1,57 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = express.Router();
-const Users = require('../model/users.js');
-const Products  = require('../model/products');
-const users = new Users();
-const products = new Products();
+const { Users, Products } = require('../model/index');
+const product = new Products();
+const User = new Users()
 
 
 //=======User's Router============
+routes.post('/login', bodyParser.json(), (req, res) => {
+    User.login(req, res);
+})
 routes.get('/users', (req, res) => {
-    users.fetchUsers(req, res);
+    User.fetchUsers(req, res);
 });
 
 routes.get('/user/:id', (req, res) => {
-    users.fetchUsers(req, res);
+    User.fetchUser(req, res);
 });
 
 routes.post('/register', bodyParser.json(), (req,res) => {
-    users.register(req, res);
+    User.register(req, res);
 });
 
 routes.put('/user/:id', bodyParser.json(), (req, res) => {
-    users.updateUser(req, res);
+    User.updateUser(req, res);
 });
 
 routes.patch('/user/:id', bodyParser.json(), (req,res) => {
-    users.updateUser(req, res);
+    User.updateUser(req, res);
 });
 routes.delete('/user/:id', (req, res) => {
-    users.deleteUser(req, res);
+    User.deleteUser(req, res);
 });
 
 //========== Products Router=========
 routes.get('/products', (req, res) => {
-    products.fetchProduct(req, res);
+    product.fetchProducts(req, res);
 });
 
-routes.get('/product/:id', (req,res) => {
-    Products.fetchproduct(req, res);
+routes.get('/product/:id', (req, res) => {
+    product.fetchproduct(req, res);
 });
 
-routes.post('/product', bodyParser.json(), (req, res) => {
-    Products.addProduct(req, res);
+routes.post('/addProduct', bodyParser.json(), (req, res) => {
+    product.addProduct(req, res);
 });
 
 routes.put('/product/:id', bodyParser.json(), (req, res) => {
-    Products.updateProduct(req, res);
+    product.updateProduct(req, res);
 });
 
 routes.delete('/product/:id', (req, res) => {
-    Products.deleteProduct(req, res);
+    product.deleteProduct(req, res);
 });
 
 module.exports = {
