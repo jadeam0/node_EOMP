@@ -29,7 +29,7 @@ routes.put('/user/:id', bodyParser.json(), (req, res) => {
 routes.patch('/user/:id', bodyParser.json(), (req,res) => {
     User.updateUser(req, res);
 });
-routes.delete('/user/:id', (req, res) => {
+routes.delete('/user/:  id', (req, res) => {
     User.deleteUser(req, res);
 });
 
@@ -39,7 +39,7 @@ routes.get('/products', (req, res) => {
 });
 
 routes.get('/product/:id', (req, res) => {
-    product.fetchproduct(req, res);
+    product.fetchProduct(req, res);
 });
 
 routes.post('/addProduct', bodyParser.json(), (req, res) => {
