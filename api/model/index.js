@@ -36,7 +36,17 @@ class Users {
         });
     };
     login(req, res){
-
+        const {emailAdd, userPass} = 
+        req.body 
+        const query = `
+        SELECT *
+        FROM Users
+        WHERE emailAdd = '${emailAdd}'
+        `
+        db.query(query, (err, result)=>{
+            if (err) throw err 
+        
+        })
     }
 
     async register(req, res) {
