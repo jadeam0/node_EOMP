@@ -1,9 +1,18 @@
 <template>
   <div class="back">
     <div class="middle">
-      <div class="rect-1"></div>
-      <div class="rect-2"></div>
-      <div class="rect-3"></div>
+      <div class="rect-1">
+        <img class="display-item-1" src="https://i.postimg.cc/NG8RgVBP/Iron-Round-Cocottes-removebg-preview.png">
+        
+      </div>
+      <div class="rect-2">
+        <img class="display-item-2" src="https://i.postimg.cc/pTf5Lhbn/Nordic-Kitchen-Kitchenware-Eva-Solo-4-removebg.png">
+        
+      </div>
+      <div class="rect-3">
+        <img class="display-item-3" src="https://i.postimg.cc/j2hfZWMr/BH-Blaumann-34cm-stainless-steel-8mm-grater-removebg-preview.png">
+        
+      </div>
     </div>
   </div>
 </template>
@@ -31,26 +40,41 @@ export default{
 
 
 .middle {
-  gap: 20px;
+  padding-top: 50px;
+  gap: 50px;
   display: flex;
 }
 
+
 .rect-1 {
   background: rgba(205, 205, 205, 0.70);
-
   width: 271px;
   height: 499px;
 }
 .rect-2 {
   background: rgba(205, 205, 205, 0.70);
-
   width: 271px;
   height: 499px;
 }
 .rect-3 {
   background: rgba(205, 205, 205, 0.70);
-
   width: 271px;
   height: 499px;
+}
+
+.display-item-1 {
+  padding-top: 40px;
+  width: 242px;
+  aspect-ratio: 3/3;
+}
+.display-item-2 {
+  padding-top: 75px;
+  width: 242px;
+  /* aspect-ratio: 3/3; */
+}
+.display-item-3 {
+  padding-top: 25px;
+  width: 242px;
+  /* aspect-ratio: 3/3; */
 }
 </style>

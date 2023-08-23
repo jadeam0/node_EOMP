@@ -2,7 +2,7 @@
     <header id="navbar1" class="navbar">
       <div class="wrapper">
         <div class="header">
-          <img class="logo" src="https://i.postimg.cc/hv6gqytH/1692782513021-thumbnail.jpg">
+          <img class="logo" src="https://i.postimg.cc/k5wLD4DK/1692782513021-thumbnail-removebg-preview.png">
           <div class="text">
             <ul class="nav-list">
                 <li class="display">
@@ -73,6 +73,9 @@ li img {
     width: 35px;
     aspect-ratio: 3/2;
     object-fit: contain;
+}
+.display {
+    padding-top: 20px;
 }
 .navbar {
     --_bg: #DFF8EB;
