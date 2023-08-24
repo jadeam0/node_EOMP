@@ -70,7 +70,7 @@
                                         <button type="submit" class="btn btn-primary">Sign in</button>
                                     </form>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">New around here? Sign up</a>
+                                    <router-link class="dropdown-item" to="/Modal">New around here? Sign up</router-link>
                                     <a class="dropdown-item" href="#">Forgot password?</a>
 
 
@@ -121,7 +121,7 @@ li img {
     object-fit: contain;
 }
 .display {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 .navbar {
     --_bg: #DFF8EB;
@@ -152,6 +152,7 @@ li img {
 .header {
     display: flex;
     justify-content: space-between;
+    height: 50px;
 }
 .btn{
     background-color: #cdcdcd !important;
