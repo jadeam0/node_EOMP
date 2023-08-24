@@ -24,13 +24,13 @@
                     </router-link>
                 </li>
                 <li class="display">
-                    <router-link to="#">
+                    <router-link to="/Admin">
                         <img src="https://i.postimg.cc/FHGtJJbw/output-onlinegiftools-3.gif"> 
                         Admin
                     </router-link>
                 </li>
                 <li class="display">
-                    <router-link to="#">
+                    <router-link to="/Products">
                         <img src="https://i.postimg.cc/SKWMrkR0/output-onlinegiftools-4.gif"> 
                         Products
                     </router-link>
@@ -68,7 +68,7 @@ export default {
 
 </script>
   
-<style>
+<style scoped>
 li img {
     width: 35px;
     aspect-ratio: 3/2;
@@ -87,7 +87,7 @@ li img {
     position: sticky;
     top:0;
     /* padding-top: 20px; */
-    opacity: 0.7;
+    opacity: 0.97;
     z-index: 9999;
 }
 
