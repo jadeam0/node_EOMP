@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-secondary mb-5 "> 
+    <div> 
 
     <div class="w-75 mx-auto shadow-lg p-5 m-3 bg-info rounded-3">
     <h1>CRUD System</h1>

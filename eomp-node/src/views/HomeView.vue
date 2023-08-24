@@ -11,15 +11,17 @@
       </div>
       <div class="rect-3">
         <img class="display-item-3" src="https://i.postimg.cc/j2hfZWMr/BH-Blaumann-34cm-stainless-steel-8mm-grater-removebg-preview.png">
-        
+       
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 export default{
-
+  name: 'HomeView',
+ 
 }
 </script>
 
@@ -29,7 +31,6 @@ export default{
 .back {
   display: flex;
   justify-content: center;
-  position: absolute;
   background-position: center;
   background: url(https://i.postimg.cc/kX3s0MGk/edgar-castrejon-CX8ooha2y-LA-unsplash.jpg) no-repeat center center/cover ; 
   height: 100vh;

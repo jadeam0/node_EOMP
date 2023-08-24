@@ -1,5 +1,5 @@
 <template>
-    <header id="navbar1" class="navbar">
+    <header id="navbar1" :class="['navbar', { sticking: isSticky }]">
       <div class="wrapper">
         <div class="header">
           <img class="logo" src="https://i.postimg.cc/k5wLD4DK/1692782513021-thumbnail-removebg-preview.png">
@@ -36,10 +36,53 @@
                     </router-link>
                 </li>
                 <li class="display">
-                    <router-link to="#">
-                        <img src="https://i.postimg.cc/zfQ5QRc4/icons8-modal-popup-66.png"> 
-                        Modal pop
-                    </router-link>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img src="https://i.postimg.cc/SNQH3rcv/output-onlinegiftools_(6).gif">
+                            Log-in
+                        </button>
+                        
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Log-in</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                    <form class="px-4 py-3">
+                                        <div class="mb-3">
+                                            <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                <label class="form-check-label" for="dropdownCheck">
+                                                Remember me
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                    </form>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">New around here? Sign up</a>
+                                    <a class="dropdown-item" href="#">Forgot password?</a>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Understood</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </li>
             </ul>
           </div>
@@ -50,20 +93,23 @@
   
 <script>
 export default {
+    data() {
+        return {
+            isSticky: false
+        };
+    },
     mounted() {
         window.addEventListener('scroll', this.onScroll);
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.onScroll);
     },
-    methods: {
-        onScroll() {
-        const navbar = document.querySelector(".navbar");
-        const navbarRect = navbar.getBoundingClientRect();
-        const isIntersecting = navbarRect.top <= 0;
-        navbar.classList.toggle("sticking", isIntersecting);
-        },
+   methods: {
+    onScroll() {
+        console.log('Scrolling');
+        this.isSticky = window.scrollY > 0;
     },
+},
 };
 
 </script>
@@ -75,7 +121,7 @@ li img {
     object-fit: contain;
 }
 .display {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 .navbar {
     --_bg: #DFF8EB;
@@ -107,7 +153,13 @@ li img {
     display: flex;
     justify-content: space-between;
 }
-
+.btn{
+    background-color: #cdcdcd !important;
+}
+.btn:hover{
+    background-color: #214E34 !important;
+    color: white;
+}
 .navbar a:hover,
 .navbar a:focus {
     opacity: 0.8;
