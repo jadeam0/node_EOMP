@@ -14,9 +14,6 @@
                 <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
             </fieldset>
             <fieldset>
-                <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
-            </fieldset>
-            <fieldset>
                 <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
             </fieldset>
             <fieldset>
@@ -43,7 +40,7 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-font-smoothing:antialiased;
 	-o-font-smoothing:antialiased;
-	font-smoothing:antialiased;
+	-font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
 
