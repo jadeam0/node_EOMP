@@ -12,7 +12,7 @@
 					<div class="check-check">
 						<label class="custom-check">
 							<input type="checkbox" class="checkbox" required="">
-							<span>I Agree To The Terms & Conditions</span>
+							<span>I Agree To The Terms & Conditions... LOL read first.</span>
 						</label>
 						<div class="clear"> </div>
 					</div>
@@ -337,7 +337,7 @@ input.checkbox:checked:after {
   }
 }
 
-/*-- //checkbox --*/
+/*-- checkbox --*/
 /*-- copyright --*/
 .colorlibcopy-agile {
   margin: 2em 0 1em;
@@ -365,7 +365,7 @@ input.checkbox:checked:after {
   color: #000;
 }
 
-/*-- //copyright --*/
+/*-- copyright --*/
 .wrapper {
   position: relative;
   overflow: hidden;
@@ -772,7 +772,6 @@ input.checkbox:checked:after {
     padding: 1em 0 0;
   }
 }
-
 
 
 </style>

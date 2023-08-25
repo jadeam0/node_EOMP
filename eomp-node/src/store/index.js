@@ -1,36 +1,55 @@
-import { createStore } from 'vuex'
-const url = "https://neomp.onrender.com/products"
+import { createStore } from 'vuex';
+
 export default createStore({
   state: {
-    products: null,
-    product: null,
-    users: null,
-    user: null,
-  },
-  getters: {
+    products: [],
+    selectedProduct: null,
+    error: null,
   },
   mutations: {
-    setProducts: (state, value) => {
-      state.products = value
+    setProducts(state, products) {
+      state.products = products;
     },
-
+    setSelectedProduct(state, product) {
+      state.selectedProduct = product;
+    },
+    setError(state, error) { 
+      state.error = error;
+    },
+    clearError(state) { 
+      state.error = null;
+    },
   },
   actions: {
-    async fetchProducts(context) {
-      try{
-        let products = await (await fetch(`https://neomp.onrender.com/products`)).json()
-        if (products) {
-          context.commit ("setProducts", products)
-        } else {
-          alert("error")
-        }
-      }
-      catch(e) {
-        console.error(error)
+    async fetchProducts({ commit }) {
+      try {
+        const response = await fetch('https://neomp.onrender.com/products');
+        const { results } = await response.json();
+        commit('setProducts', results);
+        commit('clearError'); 
+      } catch (error) {
+        console.error(error);
+        commit('setError', 'An error occurred while fetching products.');
+        alert('An error occurred while fetching products.');
       }
     },
-    
+    async fetchProductById({ commit }, productId) {
+      try {
+        const response = await fetch(`https://neomp.onrender.com/products/${productId}`);
+        const product = await response.json();
+        commit('setSelectedProduct', product);
+        commit('clearError');
+      } catch (error) {
+        console.error(error);
+        commit('setError', 'An error occurred while fetching the product.');
+        alert('An error occurred while fetching the product.');
+      }
+    },
   },
-  modules: {
-  }
-})
+  getters: {
+    getProductById: (state) => (productId) => {
+      return state.products.find(product => product.id === productId);
+    },
+  },
+});
+
