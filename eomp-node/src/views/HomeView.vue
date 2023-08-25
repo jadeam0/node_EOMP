@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="back">
-      <h1>Life</h1>
+      <h1></h1>
     </div>
     <div class="middle">
       <div class="rect-1">
