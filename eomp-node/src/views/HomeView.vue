@@ -1,21 +1,21 @@
 <template>
-  <div class="back">
+  <div>
+    <div class="back">
+      <h1>Life</h1>
+    </div>
     <div class="middle">
       <div class="rect-1">
         <img class="display-item-1" src="https://i.postimg.cc/NG8RgVBP/Iron-Round-Cocottes-removebg-preview.png">
-        
       </div>
       <div class="rect-2">
         <img class="display-item-2" src="https://i.postimg.cc/pTf5Lhbn/Nordic-Kitchen-Kitchenware-Eva-Solo-4-removebg.png">
-        
       </div>
       <div class="rect-3">
         <img class="display-item-3" src="https://i.postimg.cc/j2hfZWMr/BH-Blaumann-34cm-stainless-steel-8mm-grater-removebg-preview.png">
-       
       </div>
     </div>
+    
   </div>
-
 </template>
 
 <script>
@@ -69,11 +69,9 @@ export default{
 .display-item-2 {
   padding-top: 75px;
   width: 242px;
-  /* aspect-ratio: 3/3; */
 }
 .display-item-3 {
   padding-top: 25px;
   width: 242px;
-  /* aspect-ratio: 3/3; */
 }
 </style>

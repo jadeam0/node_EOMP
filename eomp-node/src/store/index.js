@@ -45,6 +45,19 @@ export default createStore({
         alert('An error occurred while fetching the product.');
       }
     },
+    async fetchUsers(context) {
+      try{
+        let users = await (await fetch(`https://neomp.onrender.com/register/${userID}`)).json()
+        if (users) {
+          context.commit ("setUsers", users)
+        } else {
+          alert("error")
+        }
+      }
+      catch(e) {
+        console.error(e)
+      }
+    },
   },
   getters: {
     getProductById: (state) => (productId) => {

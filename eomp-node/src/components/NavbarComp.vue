@@ -121,7 +121,7 @@ li img {
     object-fit: contain;
 }
 .display {
-    padding-top: 10px;
+    padding-top: 0px;
 }
 .navbar {
     --_bg: #DFF8EB;
